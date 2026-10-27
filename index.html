@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cátedra UCN | Gestión Inteligente de Cátedras</title>
+    <meta name="description"
+        content="Aplicación Android nativa para digitalizar la gestión de cátedras, asistencia y resúmenes con IA en la Universidad Católica del Norte.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="ri-graduation-cap-fill"></i>
+                <span>Cátedra UCN</span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú">
+                <i class="ri-menu-line"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#problema" class="nav-link">Problema</a></li>
+                <li><a href="#objetivo" class="nav-link">Objetivo</a></li>
+                <li><a href="#solucion" class="nav-link">Solución</a></li>
+                <li><a href="#tecnologias" class="nav-link">Tecnologías</a></li>
+                <li><a href="#documentacion" class="nav-link">Documentación</a></li>
+                <li><a href="https://github.com/" target="_blank" class="nav-link nav-cta">Repositorio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="ri-robot-2-line"></i>
+                    <span>Impulsado con IA</span>
+                </div>
+                <h1 class="hero-title">Gestión Inteligente de <span class="gradient-text">Cátedras UCN</span></h1>
+                <p class="hero-subtitle">
+                    Digitaliza, automatiza y optimiza la gestión de cátedras, asistencia y apoyo académico mediante una
+                    aplicación Android nativa con Inteligencia Artificial.
+                </p>
+                <div class="hero-actions">
+                    <a href="#solucion" class="btn btn-primary">
+                        <span>Conocer más</span>
+                        <i class="ri-arrow-down-line"></i>
+                    </a>
+                    <a href="#documentacion" class="btn btn-ghost">
+                        <i class="ri-file-list-3-line"></i>
+                        <span>Ver Documentación</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Roles</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Nativo Android</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">IA</span>
+                        <span class="stat-label">Integrada</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="screen-header">
+                                <i class="ri-graduation-cap-fill"></i>
+                                <span>Cátedra UCN</span>
+                            </div>
+                            <div class="screen-content">
+                                <div class="screen-card">
+                                    <div class="card-icon"><i class="ri-calendar-check-line"></i></div>
+                                    <div class="card-text">
+                                        <div class="card-title">Cátedras</div>
+                                        <div class="card-sub">Gestiona tus clases</div>
+                                    </div>
+                                </div>
+                                <div class="screen-card">
+                                    <div class="card-icon ai"><i class="ri-robot-2-line"></i></div>
+                                    <div class="card-text">
+                                        <div class="card-title">Resumen IA</div>
+                                        <div class="card-sub">Generado con Gemini</div>
+                                    </div>
+                                </div>
+                                <div class="screen-card">
+                                    <div class="card-icon check"><i class="ri-user-follow-line"></i></div>
+                                    <div class="card-text">
+                                        <div class="card-title">Asistencia</div>
+                                        <div class="card-sub">Con evidencia</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-glow"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="problema" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">01. Problema</span>
+                <h2 class="section-title">¿Por qué nace este proyecto?</h2>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="ri-file-list-2-line"></i></div>
+                    <h3>Registro Manual</h3>
+                    <p>La toma de asistencia es completamente manual, propensa a errores y consume tiempo valioso en
+                        cada clase.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="ri-time-line"></i></div>
+                    <h3>Seguimiento Ineficiente</h3>
+                    <p>Difícil llevar control de asistencias, calificaciones y participación de cada estudiante de forma
+                        centralizada.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="ri-book-open-line"></i></div>
+                    <h3>Falta de Apoyo Académico</h3>
+                    <p>Los estudiantes carecen de resúmenes rápidos y accesibles para reforzar los contenidos vistos en
+                        cátedra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="objetivo" class="section section-alt">
+        <div class="container split">
+            <div class="split-content">
+                <span class="section-tag">02. Objetivo</span>
+                <h2 class="section-title">Objetivo General</h2>
+                <p class="section-text">
+                    Desarrollar una aplicación móvil Android que permita a profesores y estudiantes gestionar cátedras,
+                    registrar y calificar asistencias con evidencia, y generar resúmenes automáticos con IA,
+                    centralizando todo en una plataforma segura, ágil y accesible.
+                </p>
+                <div class="question-box">
+                    <div class="question-icon"><i class="ri-questionnaire-line"></i></div>
+                    <div>
+                        <h4>Pregunta Problema</h4>
+                        <p>¿Cómo digitalizar y automatizar la gestión de cátedras, asistencia y apoyo académico en la UCN
+                            mediante una aplicación móvil con IA?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="split-visual">
+                <div class="goal-card">
+                    <div class="goal-item">
+                        <i class="ri-check-double-line"></i>
+                        <span>Digitalización completa del proceso</span>
+                    </div>
+                    <div class="goal-item">
+                        <i class="ri-shield-check-line"></i>
+                        <span>Control seguro y trazable</span>
+                    </div>
+                    <div class="goal-item">
+                        <i class="ri-brain-line"></i>
+                        <span>Apoyo académico con IA</span>
+                    </div>
+                    <div class="goal-item">
+                        <i class="ri-smartphone-line"></i>
+                        <span>Acceso desde cualquier lugar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucion" class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">03. Solución</span>
+                <h2 class="section-title">¿Cómo lo resuelve Cátedra UCN?</h2>
+                <p class="section-subtitle">Una solución integral con roles diferenciados para optimizar toda la
+                    experiencia académica</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="ri-user-shared-line"></i></div>
+                    <h3>Autenticación Segura</h3>
+                    <p>Inicio de sesión con Google mediante Google Identity Services. Asignación de roles: Estudiante,
+                        Profesor o Administrador.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="ri-book-mark-line"></i></div>
+                    <h3>Gestión de Cátedras</h3>
+                    <p>Los profesores pueden crear, programar y gestionar cátedras con descripción, fecha, hora, URL de
+                        streaming y material.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="ri-camera-line"></i></div>
+                    <h3>Asistencia con Evidencia</h3>
+                    <p>Los estudiantes registran su asistencia con evidencia fotográfica. Los profesores revisan,
+                        aprueban, rechazan o califican cada registro.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon ai"><i class="ri-robot-2-line"></i></div>
+                    <h3>Resúmenes con IA</h3>
+                    <p>Generación automática de resúmenes con Google Gemini AI para reforzar el estudio y aprovechar
+                        mejor el contenido.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="ri-live-line"></i></div>
+                    <h3>Cátedras en Vivo</h3>
+                    <p>Acceso directo a transmisiones en vivo mediante URL, manteniendo a los estudiantes conectados al
+                        contenido.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon"><i class="ri-dashboard-line"></i></div>
+                    <h3>Panel por Rol</h3>
+                    <p>Interfaces adaptadas a cada rol con acciones relevantes, vista clara y experiencia optimizada
+                        para Android.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container split">
+            <div class="split-content">
+                <span class="section-tag">Resumen del Proyecto</span>
+                <h2 class="section-title">Una plataforma unificada</h2>
+                <p class="section-text">
+                    Cátedra UCN centraliza la gestión académica en una sola aplicación. Mediante roles diferenciados,
+                    permite crear y seguir cátedras, registrar asistencia con evidencia fotográfica, calificarla y
+                    generar resúmenes inteligentes con Google Gemini AI. Todo con una interfaz moderna desarrollada en
+                    Kotlin y Jetpack Compose.
+                </p>
+                <div class="keywords">
+                    <span class="keyword">Android</span>
+                    <span class="keyword">Kotlin</span>
+                    <span class="keyword">Jetpack Compose</span>
+                    <span class="keyword">Firebase</span>
+                    <span class="keyword">Google Gemini AI</span>
+                    <span class="keyword">Asistencia</span>
+                    <span class="keyword">Cátedras</span>
+                    <span class="keyword">IA</span>
+                </div>
+            </div>
+            <div class="split-visual">
+                <div class="arch-diagram">
+                    <div class="arch-layer">
+                        <span class="arch-label">UI</span>
+                        <span class="arch-items">Jetpack Compose • Material 3</span>
+                    </div>
+                    <div class="arch-arrow"><i class="ri-arrow-down-line"></i></div>
+                    <div class="arch-layer">
+                        <span class="arch-label">ViewModel</span>
+                        <span class="arch-items">StateFlow • Coroutines</span>
+                    </div>
+                    <div class="arch-arrow"><i class="ri-arrow-down-line"></i></div>
+                    <div class="arch-layer">
+                        <span class="arch-label">Repository</span>
+                        <span class="arch-items">Abstracción de Datos</span>
+                    </div>
+                    <div class="arch-arrow"><i class="ri-arrow-down-line"></i></div>
+                    <div class="arch-layer highlight">
+                        <span class="arch-label">Data</span>
+                        <span class="arch-items">Firebase • Room DB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologias" class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">04. Stack Tecnológico</span>
+                <h2 class="section-title">Tecnologías Empleadas</h2>
+                <p class="section-subtitle">Construido con herramientas modernas, nativas y escalables</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+                        alt="Kotlin">
+                    <span>Kotlin 2.2.10</span>
+                </div>
+                <div class="tech-card">
+                    <img src="https://developer.android.com/static/images/jetpack/compose/logo.svg" alt="Jetpack Compose">
+                    <span>Jetpack Compose</span>
+                </div>
+                <div class="tech-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"
+                        alt="Android">
+                    <span>Android SDK 36</span>
+                </div>
+                <div class="tech-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                        alt="Firebase">
+                    <span>Firebase</span>
+                </div>
+                <div class="tech-card">
+                    <img src="https://www.gstatic.com/aihub/tfm/agents/gemini_logo_color.svg" alt="Google Gemini">
+                    <span>Google Gemini AI</span>
+                </div>
+                <div class="tech-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg"
+                        alt="Gradle">
+                    <span>Gradle KTS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="documentacion" class="section section-alt">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">05. Documentación</span>
+                <h2 class="section-title">Documentación del Proyecto</h2>
+                <p class="section-subtitle">Arquitectura, decisiones y esquema técnico organizados paso a paso</p>
+            </div>
+            <div class="docs-grid">
+                <a href="docs/architecture/overview.html" class="doc-card">
+                    <div class="doc-icon"><i class="ri-organization-chart"></i></div>
+                    <div class="doc-content">
+                        <h3>Arquitectura</h3>
+                        <p>Visión general, estructura MVVM, capas y flujo de autenticación</p>
+                    </div>
+                    <i class="ri-arrow-right-line doc-arrow"></i>
+                </a>
+                <a href="docs/decisions/index.html" class="doc-card">
+                    <div class="doc-icon"><i class="ri-file-text-line"></i></div>
+                    <div class="doc-content">
+                        <h3>Decisiones Arquitectónicas (ADRs)</h3>
+                        <p>Justificación técnica de Kotlin/Compose, Firebase y Gemini AI</p>
+                    </div>
+                    <i class="ri-arrow-right-line doc-arrow"></i>
+                </a>
+                <a href="docs/api/firestore-schema.html" class="doc-card">
+                    <div class="doc-icon"><i class="ri-database-2-line"></i></div>
+                    <div class="doc-content">
+                        <h3>Esquema Firestore</h3>
+                        <p>Modelos de datos, colecciones y estructura de la base de datos</p>
+                    </div>
+                    <i class="ri-arrow-right-line doc-arrow"></i>
+                </a>
+                <a href="README.md" class="doc-card">
+                    <div class="doc-icon"><i class="ri-markdown-line"></i></div>
+                    <div class="doc-content">
+                        <h3>README</h3>
+                        <p>Guía de instalación, configuración y ejecución del proyecto</p>
+                    </div>
+                    <i class="ri-arrow-right-line doc-arrow"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <i class="ri-graduation-cap-fill"></i>
+                        <span>Cátedra UCN</span>
+                    </div>
+                    <p>Proyecto académico - Universidad Católica del Norte</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#problema">Problema</a>
+                    <a href="#objetivo">Objetivo</a>
+                    <a href="#solucion">Solución</a>
+                    <a href="#documentacion">Documentación</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cátedra UCN. Desarrollado con fines académicos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

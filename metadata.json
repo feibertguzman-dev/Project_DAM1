@@ -1,0 +1,6 @@
+{
+  "name": "Cátedra UCN",
+  "description": "Aplicación para el control y seguimiento de la Cátedra Institucional de la Católica del Norte.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

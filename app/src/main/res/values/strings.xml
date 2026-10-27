@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cátedra UCN</string>
+    <string name="role_student">Estudiante</string>
+    <string name="role_teacher">Docente</string>
+    <string name="role_admin">Administrador</string>
+    <string name="status_upcoming">Próximamente</string>
+    <string name="status_live">En Vivo</string>
+    <string name="status_completed">Finalizado</string>
+    <string name="status_registered">Registrado</string>
+    <string name="status_evidence_submitted">Evidencia Enviada</string>
+    <string name="status_graded">Calificado</string>
+</resources>

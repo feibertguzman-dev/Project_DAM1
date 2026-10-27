@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquema Firestore | Cátedra UCN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .doc-page {
+            padding: clamp(8rem, 14vw, 10rem) 0 clamp(4rem, 10vw, 7rem);
+        }
+
+        .doc-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: clamp(2rem, 6vw, 4rem);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-tertiary);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+        }
+
+        .doc-content {
+            display: grid;
+            gap: clamp(1.6rem, 4vw, 2.6rem);
+        }
+
+        .doc-card-large {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, transparent 100%);
+            overflow: hidden;
+        }
+
+        .doc-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: clamp(1.6rem, 4vw, 2.4rem);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-card-body {
+            display: grid;
+            gap: 1.6rem;
+            padding: clamp(1.6rem, 4vw, 2.8rem);
+            color: var(--text-secondary);
+        }
+
+        .doc-card-body h3 {
+            color: var(--text-primary);
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 720px;
+        }
+
+        th,
+        td {
+            padding: 1rem 1.6rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.01);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="ri-graduation-cap-fill"></i>
+                <span>Cátedra UCN</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="../../index.html#documentacion" class="nav-link">Documentación</a></li>
+                <li><a href="https://github.com/" target="_blank" class="nav-link nav-cta">Repositorio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="doc-page">
+        <div class="container">
+            <div class="doc-header">
+                <div class="breadcrumb">
+                    <a href="../../index.html">Inicio</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <a href="../../index.html#documentacion">Documentación</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <span>Esquema Firestore</span>
+                </div>
+                <span class="section-tag">API / Base de Datos</span>
+                <h1 class="section-title">Esquema de Cloud Firestore</h1>
+                <p class="section-subtitle">Modelos de datos, colecciones y estructura utilizada en Cátedra UCN.</p>
+                <a class="back-link" href="../../index.html#documentacion"><i class="ri-arrow-left-line"></i> Volver a
+                    Documentación</a>
+            </div>
+            <div class="doc-content">
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-user-3-line"></i></div>
+                        <div>
+                            <h2>Colección: users</h2>
+                            <p style="color: var(--text-secondary);">Información de usuarios y roles</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Campo</th>
+                                        <th>Tipo</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>id</td>
+                                        <td>String</td>
+                                        <td>UID de Firebase Auth</td>
+                                    </tr>
+                                    <tr>
+                                        <td>email</td>
+                                        <td>String</td>
+                                        <td>Correo institucional</td>
+                                    </tr>
+                                    <tr>
+                                        <td>name</td>
+                                        <td>String</td>
+                                        <td>Nombre completo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>role</td>
+                                        <td>String</td>
+                                        <td>STUDENT | TEACHER | ADMIN</td>
+                                    </tr>
+                                    <tr>
+                                        <td>courseInfo</td>
+                                        <td>String?</td>
+                                        <td>Información adicional del curso</td>
+                                    </tr>
+                                    <tr>
+                                        <td>createdAt</td>
+                                        <td>Timestamp?</td>
+                                        <td>Fecha de creación</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-book-open-line"></i></div>
+                        <div>
+                            <h2>Colección: catedras</h2>
+                            <p style="color: var(--text-secondary);">Cátedras programadas</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Campo</th>
+                                        <th>Tipo</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>id</td>
+                                        <td>String</td>
+                                        <td>ID único de la cátedra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>title</td>
+                                        <td>String</td>
+                                        <td>Título de la cátedra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>description</td>
+                                        <td>String</td>
+                                        <td>Descripción</td>
+                                    </tr>
+                                    <tr>
+                                        <td>date</td>
+                                        <td>String</td>
+                                        <td>Fecha</td>
+                                    </tr>
+                                    <tr>
+                                        <td>time</td>
+                                        <td>String</td>
+                                        <td>Hora</td>
+                                    </tr>
+                                    <tr>
+                                        <td>streamUrl</td>
+                                        <td>String?</td>
+                                        <td>URL de transmisión en vivo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>videoUrl</td>
+                                        <td>String?</td>
+                                        <td>URL de video grabado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>aiSummary</td>
+                                        <td>String?</td>
+                                        <td>Resumen generado con IA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>status</td>
+                                        <td>String</td>
+                                        <td>UPCOMING | LIVE | COMPLETED</td>
+                                    </tr>
+                                    <tr>
+                                        <td>createdAt</td>
+                                        <td>Timestamp?</td>
+                                        <td>Fecha de creación</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-user-follow-line"></i></div>
+                        <div>
+                            <h2>Colección: attendances</h2>
+                            <p style="color: var(--text-secondary);">Registros de asistencia</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Campo</th>
+                                        <th>Tipo</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>id</td>
+                                        <td>String</td>
+                                        <td>ID único</td>
+                                    </tr>
+                                    <tr>
+                                        <td>studentId</td>
+                                        <td>String</td>
+                                        <td>UID del estudiante</td>
+                                    </tr>
+                                    <tr>
+                                        <td>studentName</td>
+                                        <td>String</td>
+                                        <td>Nombre del estudiante</td>
+                                    </tr>
+                                    <tr>
+                                        <td>catedraId</td>
+                                        <td>String</td>
+                                        <td>Referencia a cátedra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacherId</td>
+                                        <td>String</td>
+                                        <td>UID del profesor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacherName</td>
+                                        <td>String</td>
+                                        <td>Nombre del profesor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>evidenceUrl</td>
+                                        <td>String?</td>
+                                        <td>URL de evidencia fotográfica</td>
+                                    </tr>
+                                    <tr>
+                                        <td>grade</td>
+                                        <td>Double?</td>
+                                        <td>Calificación</td>
+                                    </tr>
+                                    <tr>
+                                        <td>status</td>
+                                        <td>String</td>
+                                        <td>REGISTERED | APPROVED | REJECTED</td>
+                                    </tr>
+                                    <tr>
+                                        <td>timestamp</td>
+                                        <td>Timestamp?</td>
+                                        <td>Fecha de registro</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <i class="ri-graduation-cap-fill"></i>
+                        <span>Cátedra UCN</span>
+                    </div>
+                    <p>Proyecto académico - Universidad Católica del Norte</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../../index.html">Inicio</a>
+                    <a href="../../index.html#documentacion">Documentación</a>
+                    <a href="https://github.com/">Repositorio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cátedra UCN. Desarrollado con fines académicos.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

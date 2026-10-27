@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && getUserRole() == 'ADMIN';
+    }
+
+    function isTeacher() {
+      return isSignedIn() && getUserRole() == 'TEACHER';
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUser(data) {
+      return data.id is string && data.email is string && data.name is string &&
+             data.role in ['ADMIN', 'TEACHER', 'STUDENT'] &&
+             data.createdAt is timestamp && data.createdAt <= request.time;
+    }
+
+    function isValidCatedra(data) {
+      return data.id is string && data.title is string && data.date is string &&
+             data.time is string && data.status in ['UPCOMING', 'LIVE', 'COMPLETED'] &&
+             (!('streamUrl' in data) || data.streamUrl is string) &&
+             (!('videoUrl' in data) || data.videoUrl is string) &&
+             (!('aiSummary' in data) || data.aiSummary is string) &&
+             data.createdAt is timestamp && data.createdAt <= request.time;
+    }
+
+    function isValidAttendance(data) {
+      return data.id is string && data.studentId is string && data.catedraId is string &&
+             data.status in ['REGISTERED', 'EVIDENCE_SUBMITTED', 'GRADED'] &&
+             (!('evidenceUrl' in data) || data.evidenceUrl is string) &&
+             (!('grade' in data) || data.grade is number) &&
+             data.timestamp is timestamp && data.timestamp <= request.time;
+    }
+
+    // Collections
+    match /users/{userId} {
+      allow get: if isSignedIn();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId) && isValidUser(incoming()) && incoming().role == 'STUDENT';
+      allow update: if (isOwner(userId) || isAdmin()) && isValidUser(incoming()) && 
+                       incoming().role == existing().role; // No role escalation
+      allow delete: if isAdmin();
+    }
+
+    match /catedras/{catedraId} {
+      allow read: if isSignedIn();
+      allow create, update: if isAdmin() && isValidCatedra(incoming());
+      allow delete: if isAdmin();
+    }
+
+    match /attendances/{attendanceId} {
+      allow read: if isSignedIn() && (
+        isOwner(resource.data.studentId) || 
+        isOwner(resource.data.teacherId) || 
+        isAdmin()
+      );
+      allow create: if isSignedIn() && isOwner(incoming().studentId) && isValidAttendance(incoming());
+      allow update: if isSignedIn() && (
+        (isOwner(existing().studentId) && incoming().diff(existing()).affectedKeys().hasOnly(['evidenceUrl', 'status']) && isValidAttendance(incoming())) ||
+        (isOwner(existing().teacherId) && incoming().diff(existing()).affectedKeys().hasOnly(['grade', 'status']) && isValidAttendance(incoming())) ||
+        isAdmin()
+      );
+      allow delete: if isAdmin();
+    }
+  }
+}

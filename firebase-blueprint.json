@@ -1,0 +1,68 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role-based access control.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "The unique user ID (UID)." },
+        "email": { "type": "string", "description": "User's email address." },
+        "name": { "type": "string", "description": "User's full name." },
+        "role": { "type": "string", "enum": ["ADMIN", "TEACHER", "STUDENT"], "description": "The user's role in the system." },
+        "courseInfo": { "type": "string", "description": "Optional course information for students." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of account creation." }
+      },
+      "required": ["id", "email", "name", "role", "createdAt"]
+    },
+    "Catedra": {
+      "title": "Catedra",
+      "description": "Information about an institutional lecture event.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique ID for the Catedra." },
+        "title": { "type": "string", "description": "Title of the lecture." },
+        "description": { "type": "string", "description": "Brief description of the topic." },
+        "date": { "type": "string", "description": "Event date (e.g., 2026-10-13)." },
+        "time": { "type": "string", "description": "Event time (e.g., 19:00)." },
+        "streamUrl": { "type": "string", "description": "YouTube or Facebook link." },
+        "videoUrl": { "type": "string", "description": "Post-event recording link." },
+        "aiSummary": { "type": "string", "description": "AI-generated summary of the lecture." },
+        "status": { "type": "string", "enum": ["UPCOMING", "LIVE", "COMPLETED"], "description": "Current status of the event." },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "date", "time", "status", "createdAt"]
+    },
+    "Attendance": {
+      "title": "Attendance",
+      "description": "Record of a student's participation in a Catedra.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique attendance ID." },
+        "studentId": { "type": "string", "description": "ID of the student." },
+        "studentName": { "type": "string" },
+        "catedraId": { "type": "string", "description": "ID of the Catedra event." },
+        "teacherId": { "type": "string", "description": "ID of the teacher assigned to the student." },
+        "teacherName": { "type": "string" },
+        "evidenceUrl": { "type": "string", "description": "Screenshot or proof of participation." },
+        "grade": { "type": "number", "description": "Grade assigned by the teacher." },
+        "status": { "type": "string", "enum": ["REGISTERED", "EVIDENCE_SUBMITTED", "GRADED"], "description": "Status of the attendance record." },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "studentId", "catedraId", "status", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles stored by UID."
+    },
+    "/catedras/{catedraId}": {
+      "schema": "Catedra",
+      "description": "List of all Catedra events."
+    },
+    "/attendances/{attendanceId}": {
+      "schema": "Attendance",
+      "description": "Attendance and grading records."
+    }
+  }
+}

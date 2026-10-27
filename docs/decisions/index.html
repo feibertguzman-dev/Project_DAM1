@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decisiones Arquitectónicas | Cátedra UCN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .doc-page {
+            padding: clamp(8rem, 14vw, 10rem) 0 clamp(4rem, 10vw, 7rem);
+        }
+
+        .doc-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: clamp(2rem, 6vw, 4rem);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-tertiary);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+        }
+
+        .doc-content {
+            display: grid;
+            gap: clamp(1.6rem, 4vw, 2.6rem);
+        }
+
+        .doc-card-large {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, transparent 100%);
+            overflow: hidden;
+        }
+
+        .doc-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: clamp(1.6rem, 4vw, 2.4rem);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-card-body {
+            display: grid;
+            gap: 1.6rem;
+            padding: clamp(1.6rem, 4vw, 2.8rem);
+            color: var(--text-secondary);
+        }
+
+        .doc-card-body h3 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+        }
+
+        .doc-card-body h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .doc-card-body ul {
+            display: grid;
+            gap: 0.6rem;
+            padding-left: 1.2rem;
+        }
+
+        .doc-card-body li {
+            list-style: disc;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(1rem, 3vw, 1.6rem);
+        }
+
+        @media (max-width: 880px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="ri-graduation-cap-fill"></i>
+                <span>Cátedra UCN</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="../../index.html#documentacion" class="nav-link">Documentación</a></li>
+                <li><a href="https://github.com/" target="_blank" class="nav-link nav-cta">Repositorio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="doc-page">
+        <div class="container">
+            <div class="doc-header">
+                <div class="breadcrumb">
+                    <a href="../../index.html">Inicio</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <a href="../../index.html#documentacion">Documentación</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <span>ADRs</span>
+                </div>
+                <span class="section-tag">Decisiones Arquitectónicas</span>
+                <h1 class="section-title">Architecture Decision Records</h1>
+                <p class="section-subtitle">Registro de las decisiones técnicas clave y su justificación.</p>
+                <a class="back-link" href="../../index.html#documentacion"><i class="ri-arrow-left-line"></i> Volver a
+                    Documentación</a>
+            </div>
+            <div class="doc-content">
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-file-list-3-line"></i></div>
+                        <div>
+                            <h2>ADR-001: Kotlin y Jetpack Compose</h2>
+                            <p style="color: var(--text-secondary);">Estado: Aceptado | Fecha: 2025-01-01</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <div>
+                            <h3>Contexto</h3>
+                            <p>Se requiere una app Android moderna, reactiva y con UI nativa para múltiples roles.</p>
+                        </div>
+                        <div class="grid-2">
+                            <div>
+                                <h3>Decisión</h3>
+                                <p>Usar <strong>Kotlin</strong> como lenguaje y <strong>Jetpack Compose</strong> para la
+                                    interfaz declarativa con Material 3.</p>
+                            </div>
+                            <div>
+                                <h3>Alternativas Rechazadas</h3>
+                                <ul>
+                                    <li>Java + XML Layouts</li>
+                                    <li>Flutter</li>
+                                    <li>Kotlin Multiplatform</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Consecuencias</h3>
+                            <ul>
+                                <li>Código conciso y mantenible</li>
+                                <li>UI reactiva y moderna</li>
+                                <li>Mejor integración con APIs Android</li>
+                                <li>Curva inicial con paradigma declarativo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-fire-line"></i></div>
+                        <div>
+                            <h2>ADR-002: Firebase como Backend</h2>
+                            <p style="color: var(--text-secondary);">Estado: Aceptado | Fecha: 2025-01-02</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <div>
+                            <h3>Contexto</h3>
+                            <p>Se necesita autenticación, base de datos en tiempo real y seguridad sin infraestructura
+                                propia.</p>
+                        </div>
+                        <div class="grid-2">
+                            <div>
+                                <h3>Decisión</h3>
+                                <p>Usar <strong>Firebase Authentication</strong>, <strong>Cloud Firestore</strong>,
+                                    <strong>Firebase App Check</strong> y <strong>Google Identity Services</strong>.
+                                </p>
+                            </div>
+                            <div>
+                                <h3>Alternativas Rechazadas</h3>
+                                <ul>
+                                    <li>Backend propio (REST)</li>
+                                    <li>Supabase</li>
+                                    <li>AWS Amplify</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Consecuencias</h3>
+                            <ul>
+                                <li>Desarrollo ágil</li>
+                                <li>Sincronización en tiempo real</li>
+                                <li>Autenticación robusta</li>
+                                <li>Dependencia del ecosistema Firebase</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-robot-2-line"></i></div>
+                        <div>
+                            <h2>ADR-003: Google Gemini AI para Resúmenes</h2>
+                            <p style="color: var(--text-secondary);">Estado: Aceptado | Fecha: 2025-01-03</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <div>
+                            <h3>Contexto</h3>
+                            <p>Necesidad de generar resúmenes automáticos para apoyar el estudio de los estudiantes.</p>
+                        </div>
+                        <div class="grid-2">
+                            <div>
+                                <h3>Decisión</h3>
+                                <p>Integrar <strong>Google Gemini AI</strong> mediante <strong>Firebase AI SDK</strong>.
+                                </p>
+                            </div>
+                            <div>
+                                <h3>Alternativas Rechazadas</h3>
+                                <ul>
+                                    <li>OpenAI GPT</li>
+                                    <li>Anthropic Claude</li>
+                                    <li>Modelos locales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Consecuencias</h3>
+                            <ul>
+                                <li>Resúmenes automáticos con IA</li>
+                                <li>Integración nativa con Firebase</li>
+                                <li>Requiere conexión a internet</li>
+                                <li>Uso de API gestionado con Secrets Gradle Plugin</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <i class="ri-graduation-cap-fill"></i>
+                        <span>Cátedra UCN</span>
+                    </div>
+                    <p>Proyecto académico - Universidad Católica del Norte</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../../index.html">Inicio</a>
+                    <a href="../../index.html#documentacion">Documentación</a>
+                    <a href="https://github.com/">Repositorio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cátedra UCN. Desarrollado con fines académicos.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

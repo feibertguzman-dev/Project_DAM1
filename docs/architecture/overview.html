@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura | Cátedra UCN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .doc-page {
+            padding: clamp(8rem, 14vw, 10rem) 0 clamp(4rem, 10vw, 7rem);
+        }
+
+        .doc-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: clamp(2rem, 6vw, 4rem);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-tertiary);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+        }
+
+        .doc-content {
+            display: grid;
+            gap: clamp(1.6rem, 4vw, 2.6rem);
+        }
+
+        .doc-card-large {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, transparent 100%);
+            overflow: hidden;
+        }
+
+        .doc-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: clamp(1.6rem, 4vw, 2.4rem);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-card-body {
+            display: grid;
+            gap: 1.6rem;
+            padding: clamp(1.6rem, 4vw, 2.8rem);
+            color: var(--text-secondary);
+        }
+
+        .doc-card-body h3 {
+            color: var(--text-primary);
+            font-size: 1.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        .doc-card-body h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .doc-card-body p,
+        .doc-card-body li {
+            color: var(--text-secondary);
+        }
+
+        .doc-card-body ul {
+            display: grid;
+            gap: 0.8rem;
+            padding-left: 1.2rem;
+        }
+
+        .doc-card-body li {
+            list-style: disc;
+        }
+
+        .code-block {
+            padding: clamp(1.2rem, 3vw, 1.8rem);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 70%);
+            font-family: 'JetBrains Mono', monospace;
+            white-space: pre-wrap;
+            line-height: 1.9;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="ri-graduation-cap-fill"></i>
+                <span>Cátedra UCN</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="../../index.html#documentacion" class="nav-link">Documentación</a></li>
+                <li><a href="https://github.com/" target="_blank" class="nav-link nav-cta">Repositorio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="doc-page">
+        <div class="container">
+            <div class="doc-header">
+                <div class="breadcrumb">
+                    <a href="../../index.html">Inicio</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <a href="../../index.html#documentacion">Documentación</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <span>Arquitectura</span>
+                </div>
+                <span class="section-tag">Arquitectura</span>
+                <h1 class="section-title">Arquitectura del Proyecto Cátedra UCN</h1>
+                <p class="section-subtitle">MVVM con separación por capas, pensado para escalabilidad, mantenibilidad
+                    y claridad.</p>
+                <a class="back-link" href="../../index.html#documentacion"><i class="ri-arrow-left-line"></i> Volver a
+                    Documentación</a>
+            </div>
+            <div class="doc-content">
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-organization-chart"></i></div>
+                        <div>
+                            <h2>Visión General</h2>
+                            <p style="color: var(--text-secondary);">Aplicación Android nativa con Kotlin y Jetpack
+                                Compose</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <p>Cátedra UCN sigue una arquitectura <strong>MVVM (Model-View-ViewModel)</strong> con principios
+                            de Clean Architecture. Se busca una clara separación de responsabilidades entre UI,
+                            lógica de presentación y acceso a datos.</p>
+                        <div class="code-block">┌─────────────────────────────────────────────────────────┐
+│                        UI Layer                          │
+│  (Jetpack Compose Screens, Theme, Navigation)           │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+┌─────────────────────▼───────────────────────────────────┐
+│                    ViewModel Layer                       │
+│  (AuthViewModel, CatedraViewModel, AttendanceViewModel) │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+┌─────────────────────▼───────────────────────────────────┐
+│                   Repository Layer                       │
+│         (UserRepository, CatedraRepository, etc.)        │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+┌─────────────────────▼───────────────────────────────────┐
+│                    Data Sources                          │
+│        Firebase Firestore, Firebase Auth, Room DB       │
+└─────────────────────────────────────────────────────────┘</div>
+                    </div>
+                </article>
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-folder-2-line"></i></div>
+                        <div>
+                            <h2>Estructura de Paquetes</h2>
+                            <p style="color: var(--text-secondary);">Organización clara por responsabilidades</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <div class="code-block">com.example/
+├── MainActivity.kt           # Punto de entrada de la aplicación
+├── data/
+│   ├── model/               # Modelos de datos (User, Catedra, Attendance)
+│   └── repository/          # Repositorios para acceso a datos
+├── ui/
+│   ├── screens/             # Pantallas Composables
+│   ├── theme/               # Tema, colores, tipografía
+│   └── viewmodel/           # ViewModels
+└── util/                    # Utilidades (AuthHelper, GeminiClient, UiTranslator)</div>
+                    </div>
+                </article>
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-route-line"></i></div>
+                        <div>
+                            <h2>Flujo de Autenticación</h2>
+                            <p style="color: var(--text-secondary);">Paso a paso del inicio de sesión</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <ul>
+                            <li><strong>Inicio:</strong> <code>MainActivity</code> verifica el estado de autenticación
+                                con Firebase.</li>
+                            <li><strong>No autenticado:</strong> Se muestra <code>LoginScreen</code> con inicio de sesión
+                                Google.</li>
+                            <li><strong>Sin rol:</strong> <code>RoleSelectionScreen</code> permite seleccionar
+                                Estudiante/Profesor.</li>
+                            <li><strong>Autenticado:</strong> <code>MainScreen</code> carga el dashboard según el rol del
+                                usuario.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="doc-card-large">
+                    <div class="doc-card-header">
+                        <div class="doc-icon"><i class="ri-group-line"></i></div>
+                        <div>
+                            <h2>Roles de Usuario</h2>
+                            <p style="color: var(--text-secondary);">Permisos diferenciados</p>
+                        </div>
+                    </div>
+                    <div class="doc-card-body">
+                        <ul>
+                            <li><strong>STUDENT:</strong> Ver cátedras, registrar asistencia con evidencia, ver resúmenes
+                                IA.</li>
+                            <li><strong>TEACHER:</strong> Crear/gestionar cátedras, revisar asistencias, aprobar/rechazar
+                                y calificar.</li>
+                            <li><strong>ADMIN:</strong> Gestión completa del sistema.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <i class="ri-graduation-cap-fill"></i>
+                        <span>Cátedra UCN</span>
+                    </div>
+                    <p>Proyecto académico - Universidad Católica del Norte</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../../index.html">Inicio</a>
+                    <a href="../../index.html#documentacion">Documentación</a>
+                    <a href="https://github.com/">Repositorio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cátedra UCN. Desarrollado con fines académicos.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
