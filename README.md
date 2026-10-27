@@ -7,6 +7,10 @@
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
 
+## Entregables:
+1. Enlace a la landing: https://feibertguzman-dev.github.io/Project_DAM1/#inicio
+2. Enlace a xxx
+
 ## Introducción
 
 Cátedra UCN es una aplicación móvil Android nativa que digitaliza la gestión de cátedras en la Universidad Católica del Norte, integrando autenticación, control de asistencia, calificaciones y resúmenes generados con Inteligencia Artificial.
